@@ -4,20 +4,20 @@ using System.Collections.Generic;
 namespace PotterShoppingCart.Tests
 {
     [TestClass]
-    public class DiscountTest
+    public class ShoppingCartTest
     {
         [TestMethod]
         public void 第一集買了一本_其他都沒買_return_100()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             int expected = 100;
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -27,7 +27,7 @@ namespace PotterShoppingCart.Tests
         public void 第一集買了一本_第二集也買了一本_return_190()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -35,7 +35,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -45,7 +45,7 @@ namespace PotterShoppingCart.Tests
         public void 一二三集各買了一本_return_270()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -54,7 +54,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -64,7 +64,7 @@ namespace PotterShoppingCart.Tests
         public void 一二三四集各買了一本_return_320()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -74,7 +74,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -84,7 +84,7 @@ namespace PotterShoppingCart.Tests
         public void 一二三四五集各買了一本_return_375()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -95,7 +95,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -105,7 +105,7 @@ namespace PotterShoppingCart.Tests
         public void 一二集各買了一本_第三集買了兩本_return_370()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -115,7 +115,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -125,7 +125,7 @@ namespace PotterShoppingCart.Tests
         public void 第一集買了一本_第二三集各買了兩本_return_420()
         {
             //arrange
-            var terget = new Discount();
+            var target = new ShoppingCart();
             var order = new List<Order>();
             order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
@@ -136,7 +136,7 @@ namespace PotterShoppingCart.Tests
 
             //act
             int actual;
-            actual = terget.GetDiscount(order);
+            actual = target.GetBills(order);
 
             //assert
             Assert.AreEqual(expected, actual);

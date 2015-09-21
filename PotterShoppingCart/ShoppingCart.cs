@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace PotterShoppingCart
 {
-    public class Discount
+    public class ShoppingCart
     {
-        public int GetDiscount(List<Order> order)
+        public int GetBills(List<Order> order)
         {
             //先將同類書籍分類
             var sameBookGroup = order
