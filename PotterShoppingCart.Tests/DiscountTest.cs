@@ -47,6 +47,9 @@ namespace PotterShoppingCart.Tests
             //arrange
             var terget = new Discount();
             var order = new List<Order>();
+            order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
+            order.Add(new Order() { BookName = BookName.哈利波特第二集, Price = 100 });
+            order.Add(new Order() { BookName = BookName.哈利波特第三集, Price = 100 });
             int expected = 270;
 
             //act
