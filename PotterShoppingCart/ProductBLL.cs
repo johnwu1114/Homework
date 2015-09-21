@@ -6,6 +6,20 @@ namespace PotterShoppingCart
 {
     public class ProductBLL
     {
+        private static Dictionary<int, double> Discount;
+
+        public ProductBLL()
+        {
+            if (Discount == null)
+            {
+                Discount = new Dictionary<int, double>();
+                Discount.Add(2, 0.95);
+                Discount.Add(3, 0.90);
+                Discount.Add(4, 0.80);
+                Discount.Add(5, 0.75);
+            }
+        }
+
         public Product GetProduct(BookName bookName)
         {
             return GetProductList().FirstOrDefault(p => p.BookName == bookName);
@@ -21,8 +35,6 @@ namespace PotterShoppingCart
             products.Add(new Product() { BookName = BookName.哈利波特第五集, Price = 100 });
             return products;
         }
-
-
 
         public int GetBills(List<Product> order)
         {
@@ -74,19 +86,9 @@ namespace PotterShoppingCart
 
         private int GetDiscount(int sumPrice, int count)
         {
-            switch (count)
+            if (Discount.ContainsKey(count))
             {
-                case 2:
-                    return Convert.ToInt32(sumPrice * 0.95);
-
-                case 3:
-                    return Convert.ToInt32(sumPrice * 0.90);
-
-                case 4:
-                    return Convert.ToInt32(sumPrice * 0.80);
-
-                case 5:
-                    return Convert.ToInt32(sumPrice * 0.75);
+                return Convert.ToInt32(sumPrice * Discount[count]);
             }
             return sumPrice;
         }
