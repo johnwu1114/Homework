@@ -1,0 +1,39 @@
+﻿@model Order
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bills</title>
+    <link rel=stylesheet type="text/css" href="@Url.Content("~/Contents/Style.css")">
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>購買清單</th>
+                    <th>數量</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    if (item.Count > 0)
+                    {
+                        <tr>
+                            <td>@item.BookName.ToString()</td>
+                            <td>@item.Count</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        特惠價：@Model.TotalPrice
+    </div>
+</body>
+</html>

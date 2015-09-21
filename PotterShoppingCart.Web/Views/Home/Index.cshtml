@@ -1,0 +1,47 @@
+﻿@model List<Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel=stylesheet type="text/css" href="@Url.Content("~/Contents/Style.css")">
+</head>
+<body>
+    @using (Html.BeginForm("Bills","Home"))
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>商品名稱</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    var product = Model[i];
+                    <tr>
+                        <td>@product.BookName.ToString()</td>
+                        <td>@(product.Price)元</td>
+                        <td>
+                            <input name="Items[@i].Count" type="text" maxlength="2" />
+                            <input name="Items[@i].BookName" value="@((int)product.BookName)" type="hidden" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="submit" value="結帳" />
+    }
+    <form id="productList" method="post" action="@Url.Action("Index","Home")"></form>
+    <script type="text/javascript" src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Home/Index.js"></script>
+</body>
+</html>

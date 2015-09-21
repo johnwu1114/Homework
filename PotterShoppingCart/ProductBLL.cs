@@ -4,9 +4,27 @@ using System.Linq;
 
 namespace PotterShoppingCart
 {
-    public class ShoppingCart
+    public class ProductBLL
     {
-        public int GetBills(List<Order> order)
+        public Product GetProduct(BookName bookName)
+        {
+            return GetProductList().FirstOrDefault(p => p.BookName == bookName);
+        }
+
+        public List<Product> GetProductList()
+        {
+            var products = new List<Product>();
+            products.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
+            products.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
+            products.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
+            products.Add(new Product() { BookName = BookName.哈利波特第四集, Price = 100 });
+            products.Add(new Product() { BookName = BookName.哈利波特第五集, Price = 100 });
+            return products;
+        }
+
+
+
+        public int GetBills(List<Product> order)
         {
             //先將同類書籍分類
             var sameBookGroup = order
@@ -36,6 +54,22 @@ namespace PotterShoppingCart
                 });
 
             return serialGroup.Sum(o => GetDiscount(o.Sum, o.Count));
+        }
+
+        public int GetBills(Order model)
+        {
+            var products = GetProductList();
+            var orderProducts = new List<Product>();
+            foreach (var item in model.Items)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    var product = GetProduct(item.BookName);
+                    if (product != null)
+                        orderProducts.Add(product);
+                }
+            }
+            return GetBills(orderProducts);
         }
 
         private int GetDiscount(int sumPrice, int count)
