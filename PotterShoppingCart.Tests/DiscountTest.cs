@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
 namespace PotterShoppingCart.Tests
@@ -13,6 +12,7 @@ namespace PotterShoppingCart.Tests
             //arrange
             var terget = new Discount();
             var order = new List<Order>();
+            order.Add(new Order() { BookName = BookName.哈利波特第一集, Price = 100 });
             int expected = 100;
 
             //act

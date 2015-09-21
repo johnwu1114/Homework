@@ -7,9 +7,9 @@ namespace PotterShoppingCart.Tests
 {
     class Discount
     {
-        internal int GetDiscount(List<Order> order)
+        public int GetDiscount(List<Order> order)
         {
-            throw new NotImplementedException();
+            return order.Sum(o => o.Price);
         }
     }
 }
