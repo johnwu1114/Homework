@@ -34,6 +34,8 @@ namespace PotterShoppingCart
                     return Convert.ToInt32(sumPrice * 0.90);
                 case 4:
                     return Convert.ToInt32(sumPrice * 0.80);
+                case 5:
+                    return Convert.ToInt32(sumPrice * 0.75);
             }
             return sumPrice;
         }
