@@ -122,7 +122,7 @@ namespace PotterShoppingCart.Tests
         }
 
         [TestMethod]
-        public void 第一集買了一本_第二三集各買了兩本_return_420()
+        public void 第一集買了一本_第二三集各買了兩本_return_460()
         {
             //arrange
             var target = new ProductBLL();

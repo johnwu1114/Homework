@@ -31,7 +31,7 @@
                         <td>@product.BookName.ToString()</td>
                         <td>@(product.Price)元</td>
                         <td>
-                            <input name="Items[@i].Count" type="text" maxlength="2" />
+                            <input id="txt_@((int)product.BookName)" name="Items[@i].Count" type="text" maxlength="2" />
                             <input name="Items[@i].BookName" value="@((int)product.BookName)" type="hidden" />
                         </td>
                     </tr>

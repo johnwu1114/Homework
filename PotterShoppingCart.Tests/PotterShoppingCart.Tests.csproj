@@ -35,9 +35,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAutomation.Core">
+      <HintPath>..\packages\FluentAutomation.Core.3.0.0.0\lib\net40\FluentAutomation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAutomation.SeleniumWebDriver">
+      <HintPath>..\packages\FluentAutomation.SeleniumWebDriver.3.0.0.0\lib\net40\FluentAutomation.SeleniumWebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="WebDriver, Version=2.47.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Selenium.WebDriver.2.47.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.47.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Selenium.Support.2.47.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -53,8 +71,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="PageObjects\HomeIndexPage.cs" />
+    <Compile Include="PageObjects\HomeIndexResultPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductBLLTest.cs" />
+    <Compile Include="WebTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="User Story.txt" />
@@ -64,6 +85,9 @@
       <Project>{0eceb06c-1474-43e7-a1e3-8c877025fb8d}</Project>
       <Name>PotterShoppingCart</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
