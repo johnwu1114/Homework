@@ -15,6 +15,26 @@ namespace PotterShoppingCart.Tests
         }
 
         [TestMethod]
+        public void WebTest_好想用迴圈_第一集買了一本_其他都沒買_return_100()
+        {
+            //好想用迴圈...
+
+            //arrange
+            var target = new HomeIndexPage(this);
+            target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+
+            //act
+            target.BuyBook_好想用迴圈(order);
+
+            //assert
+            var result = new HomeIndexResultPage(this);
+            int expected = 100;
+            result.FindResult(expected);
+        }
+
+        [TestMethod]
         public void WebTest_第一集買了一本_其他都沒買_return_100()
         {
             //arrange
