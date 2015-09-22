@@ -15,7 +15,7 @@ namespace PotterShoppingCart.Web.Controllers
         [HttpPost]
         public ActionResult Bills(Order model)
         {
-            var bll = new ProductBLL();
+            var bll = new OrderBLL();
             model.TotalPrice = bll.GetBills(model);
             return View(model);
         }
