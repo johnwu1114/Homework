@@ -16,7 +16,7 @@ namespace PotterShoppingCart.Tests.PageObjects
 
         }
 
-        internal void FindResult(int expectedPrice)
+        internal void TotalPriceShouldBe(int expectedPrice)
         {
             I.Assert.Text(expectedPrice.ToString()).In(priceContainer);
         }

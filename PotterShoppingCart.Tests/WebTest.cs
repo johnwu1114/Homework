@@ -15,40 +15,21 @@ namespace PotterShoppingCart.Tests
         }
 
         [TestMethod]
-        public void WebTest_好想用迴圈_第一集買了一本_其他都沒買_return_100()
-        {
-            //好想用迴圈...
-
-            //arrange
-            var target = new HomeIndexPage(this);
-            target.Go();
-            var order = new Order();
-            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
-
-            //act
-            target.BuyBook_好想用迴圈(order);
-
-            //assert
-            var result = new HomeIndexResultPage(this);
-            int expected = 100;
-            result.FindResult(expected);
-        }
-
-        [TestMethod]
         public void WebTest_第一集買了一本_其他都沒買_return_100()
         {
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            int expected = 100;
 
             //act
-            target.BuyFirstBook(1);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 100;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -57,16 +38,17 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            int expected = 190;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(1);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 190;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -75,17 +57,18 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
+            int expected = 270;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(1);
-            target.BuyThirdBook(1);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 270;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -94,18 +77,19 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第四集, Count = 1 });
+            int expected = 320;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(1);
-            target.BuyThirdBook(1);
-            target.BuyFourthBook(1);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 320;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -114,19 +98,20 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第四集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第五集, Count = 1 });
+            int expected = 375;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(1);
-            target.BuyThirdBook(1);
-            target.BuyFourthBook(1);
-            target.BuyFifthBook(1);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 375;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -135,17 +120,18 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 2 });
+            int expected = 370;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(1);
-            target.BuyThirdBook(2);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 370;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
 
         [TestMethod]
@@ -154,17 +140,18 @@ namespace PotterShoppingCart.Tests
             //arrange
             var target = new HomeIndexPage(this);
             target.Go();
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 2 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 2 });
+            int expected = 460;
 
             //act
-            target.BuyFirstBook(1);
-            target.BuySecondBook(2);
-            target.BuyThirdBook(2);
-            target.Submit();
+            target.BuyBooks(order);
 
             //assert
             var result = new HomeIndexResultPage(this);
-            int expected = 460;
-            result.FindResult(expected);
+            result.TotalPriceShouldBe(expected);
         }
     }
 }
