@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace PotterShoppingCart.Tests
 {
@@ -11,8 +10,8 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
             int expected = 100;
 
             //act
@@ -28,9 +27,9 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
             int expected = 190;
 
             //act
@@ -46,10 +45,10 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
             int expected = 270;
 
             //act
@@ -65,11 +64,11 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第四集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第四集, Count = 1 });
             int expected = 320;
 
             //act
@@ -85,12 +84,12 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第四集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第五集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第四集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第五集, Count = 1 });
             int expected = 375;
 
             //act
@@ -106,11 +105,10 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 2 });
             int expected = 370;
 
             //act
@@ -126,12 +124,10 @@ namespace PotterShoppingCart.Tests
         {
             //arrange
             var target = new ProductBLL();
-            var order = new List<Product>();
-            order.Add(new Product() { BookName = BookName.哈利波特第一集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第二集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
-            order.Add(new Product() { BookName = BookName.哈利波特第三集, Price = 100 });
+            var order = new Order();
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第一集, Count = 1 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第二集, Count = 2 });
+            order.Items.Add(new OrderItem() { BookName = BookName.哈利波特第三集, Count = 2 });
             int expected = 460;
 
             //act

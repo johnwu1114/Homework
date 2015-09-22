@@ -12,31 +12,31 @@ namespace PotterShoppingCart.Tests.PageObjects
 
         internal void BuyFirstBook(int count)
         {
-            string container = "#txt_0";
+            string container = string.Format("#txt_{0}", (int)BookName.哈利波特第一集);
             I.Enter(count).In(container);
         }
 
         internal void BuySecondBook(int count)
         {
-            string container = "#txt_1";
+            string container = string.Format("#txt_{0}", (int)BookName.哈利波特第二集);
             I.Enter(count).In(container);
         }
 
         internal void BuyThirdBook(int count)
         {
-            string container = "#txt_2";
+            string container = string.Format("#txt_{0}", (int)BookName.哈利波特第三集);
             I.Enter(count).In(container);
         }
 
         internal void BuyFourthBook(int count)
         {
-            string container = "#txt_3";
+            string container = string.Format("#txt_{0}", (int)BookName.哈利波特第四集);
             I.Enter(count).In(container);
         }
 
         internal void BuyFifthBook(int count)
         {
-            string container = "#txt_4";
+            string container = string.Format("#txt_{0}", (int)BookName.哈利波特第五集);
             I.Enter(count).In(container);
         }
 
